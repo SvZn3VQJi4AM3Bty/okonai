@@ -2,7 +2,7 @@
 
 "use strict";
 
-const CACHE_NAME = "pomodoro-static-v3";
+const CACHE_NAME = "pomodoro-static-v4";
 
 // GitHub Pages では /<repo>/ 配下で配信されるため、相対パスで列挙する
 const PRECACHE_URLS = [

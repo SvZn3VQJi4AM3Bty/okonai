@@ -192,6 +192,21 @@ body{
   font-size: 13px;
 }
 
+.helpSteps{
+  margin: 0;
+  padding-left: 1.25rem;
+  display: grid;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.helpSteps strong{
+  color: var(--text);
+  font-weight: 600;
+}
+
 .settings{
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
