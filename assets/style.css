@@ -251,8 +251,49 @@ body{
   font-size: 12px;
 }
 
+.pwaUpdateBanner{
+  position: fixed;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  width: min(720px, calc(100% - 24px));
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid var(--cardBorder);
+  background: rgba(11, 16, 32, .92);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  z-index: 9999;
+}
+
+.pwaUpdateText{
+  margin: 0;
+  font-size: 14px;
+}
+
+.pwaUpdateActions{
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pwaUpdateActions .btn{
+  min-width: 0;
+}
+
 @media (max-width: 640px){
   .timeText{ font-size: 56px; }
   .settings{ grid-template-columns: 1fr; }
   .btn{ min-width: 0; flex: 1; }
+  .pwaUpdateBanner{
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .pwaUpdateActions .btn{
+    flex: 1;
+  }
 }

@@ -1,0 +1,18 @@
+---
+description: Prohibit external network integrations and outbound requests
+alwaysApply: true
+---
+
+# No External Communication Policy
+
+This project is for personal use only. Do not add features that communicate with external services.
+
+- Do not add third-party analytics, tracking pixels, ads, or telemetry.
+- Do not add external SDKs or libraries that send requests outside this origin.
+- Do not add API calls (`fetch`, XHR, WebSocket, EventSource, WebRTC, sendBeacon) to third-party domains.
+- Keep runtime behavior self-contained with local logic, localStorage, and static assets in this repository.
+- If a feature appears to require external communication, stop and ask the user for explicit approval first.
+
+Allowed exception:
+
+- Browser-managed update checks for this app's own Service Worker and same-origin static assets.
