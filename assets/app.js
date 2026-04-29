@@ -133,11 +133,21 @@
   // ブラウザの自動再生制限を避けるため、最初のユーザー操作以降に音を鳴らす
   let audioUnlocked = false;
   const unlockOnce = () => {
+    if (audioUnlocked) return;
     audioUnlocked = true;
+
+    // モバイルでは AudioContext.resume() が「ユーザー操作直後」でないと失敗しやすい。
+    // 先に resume しておくことで、タイマー終了時（ユーザー操作の後）でも鳴る確率が上がる。
+    void resumeAudioContextIfNeeded();
+
     window.removeEventListener("pointerdown", unlockOnce);
+    window.removeEventListener("touchstart", unlockOnce);
+    window.removeEventListener("mousedown", unlockOnce);
     window.removeEventListener("keydown", unlockOnce);
   };
   window.addEventListener("pointerdown", unlockOnce, { once: true });
+  window.addEventListener("touchstart", unlockOnce, { once: true, passive: true });
+  window.addEventListener("mousedown", unlockOnce, { once: true });
   window.addEventListener("keydown", unlockOnce, { once: true });
 
   /** @type {AudioContext | null} */
@@ -247,7 +257,8 @@
 
   function beep() {
     if (!audioUnlocked) return;
-    void playEndSound(settings);
+    // 「保存」しなくても、フォームで選んだ終了音設定が即座に反映されるようにする
+    void playEndSound(readSoundPrefsFromForm());
   }
 
   const persisted = loadState();
