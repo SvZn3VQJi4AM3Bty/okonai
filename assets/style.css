@@ -160,6 +160,13 @@ body{
   background: transparent;
 }
 
+.btnInline{
+  min-width: 0;
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
 .metaRow{
   display:flex;
   gap: 12px;

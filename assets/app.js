@@ -33,6 +33,7 @@
     progressBar: document.getElementById("progressBar"),
     startPauseBtn: document.getElementById("startPauseBtn"),
     resetBtn: document.getElementById("resetBtn"),
+    resetSessionsBtn: document.getElementById("resetSessionsBtn"),
     statusText: document.getElementById("statusText"),
     sessionCount: document.getElementById("sessionCount"),
     modeFocus: document.getElementById("modeFocus"),
@@ -344,6 +345,14 @@
     persistNow();
   }
 
+  function resetSessionsCount() {
+    const ok = window.confirm("セッション数を0にリセットします。よろしいですか？");
+    if (!ok) return;
+    focusSessionsCompleted = 0;
+    render();
+    persistNow();
+  }
+
   function setMode(nextMode) {
     if (running) return; // 走ってる最中の誤操作を防ぐ
     mode = nextMode;
@@ -429,6 +438,7 @@
     });
 
     el.resetBtn.addEventListener("click", () => reset(true));
+    el.resetSessionsBtn.addEventListener("click", resetSessionsCount);
 
     el.modeFocus.addEventListener("click", () => setMode(Mode.FOCUS));
     el.modeShort.addEventListener("click", () => setMode(Mode.SHORT));

@@ -54,6 +54,14 @@
             <span class="metaLabel">セッション</span>
             <span id="sessionCount" class="metaValue">0</span>
           </div>
+          <button
+            id="resetSessionsBtn"
+            class="btn btnGhost btnInline"
+            type="button"
+            aria-label="セッション数を0にリセット"
+          >
+            セッションを0にする
+          </button>
           <div class="meta">
             <span class="metaLabel">状態</span>
             <span id="statusText" class="metaValue">待機中</span>
@@ -175,6 +183,7 @@
           <li><strong>モード</strong>：「集中」「小休憩」「長休憩」から選びます。タイマーが動いている間は切り替えられません（誤操作防止）。</li>
           <li><strong>開始 / 一時停止</strong>：カウントを始めたり止めたりします。</li>
           <li><strong>リセット</strong>：いまのモードの時間を最初からやり直します。</li>
+          <li><strong>セッションを0にする</strong>：セッション数だけを手動で0に戻します（タイマーの残り時間やモードはそのまま）。</li>
           <li><strong>セッション</strong>：集中が1回完了するたびに 1 増えます（休憩の完了では増えません）。</li>
           <li><strong>休憩の種類の決まり方</strong>：集中が終わったあと、セッション数が設定の「長休憩に入るまでの集中回数」の倍数なら次は長休憩、そうでなければ小休憩に切り替わります。小休憩・長休憩が終わると、次は集中に戻ります。</li>
           <li><strong>次のセッションを自動開始</strong>：設定でオンにすると、モードが切り替わったあとも自動でカウントが始まります。</li>
